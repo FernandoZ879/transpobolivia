@@ -1,0 +1,6 @@
+{
+  "name": "TranspoBolivia",
+  "description": "Una aplicación web para la gestión de flotas de transporte y venta de boletos en línea en Bolivia. Este MVP se enfoca en la experiencia del cliente para buscar rutas, seleccionar asientos y confirmar un boleto.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}

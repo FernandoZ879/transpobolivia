@@ -1,0 +1,121 @@
+# PostgreSQL
+postgres-data/
+postgres-data/**
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+.report/
+
+# Runtime data
+.next/
+.nuxt/
+.vuepress/dist/
+.serverless/
+.fusebox/
+.builder/
+
+# Directory for compiled output
+dist/
+build/
+.output/
+
+# Dependencies
+node_modules/
+jspm_packages/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm/
+
+# Optional eslint cache
+.eslintcache
+
+# Optional stylelint cache
+.stylelintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache/
+
+# Custom Report Files
+**/coverage
+.nyc_output/
+.grunt/
+.lock-wscript
+.wafpickle-N
+
+# Compiled source
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Compressed files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Package files
+*.whl
+*.egg
+*.pyc
+*.pyo
+
+# Editor directories and files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.bak
+*.user
+*.code-workspace
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Environment variables
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# Docker
+docker-compose.override.yml
+docker-compose.local.yml
+*.env
+
+# Git
+.git/
+.gitattributes
+.gitmodules
+.gitkeep
+
+# Other
+*.swp
+*.swo
