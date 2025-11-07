@@ -18,11 +18,11 @@ import { HorariosModule } from './horarios/horarios.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
-      port: 5433,
-      username: 'user',
-      password: 'password',
-      database: 'transpobolivia_db',
+      host: 'db',
+      port: 5432,
+      username: process.env.POSTGRES_USER, // Usaremos variables de entorno
+      password: process.env.POSTGRES_PASSWORD,
+      database: process.env.POSTGRES_DB,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),

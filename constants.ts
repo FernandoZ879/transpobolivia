@@ -70,4 +70,5 @@ export const VIAJES_DISPONIBLES: Viaje[] = [
     asientos: generarAsientos(),
   },
 ];
-export const API_BASE = 'http://localhost:3000';
+//export const API_BASE = 'http://localhost:3000';
+export const API_BASE = '/api'; // Ruta relativa para el proxy
