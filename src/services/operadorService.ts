@@ -62,7 +62,14 @@ export const operadorService = {
     );
   },
 
-  async getResumen(): Promise<{ vehiculosActivos: number; conductores: number; rutas: number; alertas: number }> {
+  async getResumen(): Promise<{
+    vehiculosActivos: number;
+    conductores: number;
+    rutas: number;
+    alertas: number;
+    pasajerosHoy: number;
+    ingresosHoy: number;
+  }> {
     const [summaryRes, alertasRes] = await Promise.all([
       fetch(`${base}/empresa/summary`, { headers: { ...authHeaders() } }),
       fetch(`${base}/mantenimiento/alertas`, { headers: { ...authHeaders() } }),

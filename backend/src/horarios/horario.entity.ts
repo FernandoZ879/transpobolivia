@@ -38,4 +38,7 @@ export class Horario {
 
   @Column('decimal', { precision: 10, scale: 2, transformer: decimalTransformer })
   tarifaGeneral: number;
+
+  @Column({ type: 'date', nullable: true })
+  fecha: string | null; // YYYY-MM-DD for specific date trips
 }

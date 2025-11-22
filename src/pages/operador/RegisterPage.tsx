@@ -34,77 +34,77 @@ const OperadorRegisterPage: React.FC = () => {
 
   return (
     <div className="flex justify-center items-center py-12">
-      <div className="w-full max-w-md bg-surface p-8 rounded-2xl shadow-xl">
-        <h1 className="text-3xl font-bold text-primary text-center mb-2">Registra tu Empresa</h1>
-        <p className="text-text-muted text-center mb-6">Únete a nuestra red de operadores y digitaliza tus ventas.</p>
+      <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
+        <h1 className="text-3xl font-bold text-blue-900 text-center mb-2">Registra tu Empresa</h1>
+        <p className="text-gray-500 text-center mb-6">Únete a nuestra red de operadores y digitaliza tus ventas.</p>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="nombreEmpresa" className="block text-sm font-medium text-text-muted mb-1">Nombre de la Empresa</label>
+            <label htmlFor="nombreEmpresa" className="block text-sm font-medium text-gray-700 mb-1">Nombre de la Empresa</label>
             <input
               type="text"
               id="nombreEmpresa"
               value={nombreEmpresa}
               onChange={(e) => setNombreEmpresa(e.target.value)}
               required
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-light"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
             />
           </div>
-           <div>
-            <label htmlFor="nit" className="block text-sm font-medium text-text-muted mb-1">NIT (Número de Identificación Tributaria)</label>
+          <div>
+            <label htmlFor="nit" className="block text-sm font-medium text-gray-700 mb-1">NIT (Número de Identificación Tributaria)</label>
             <input
               type="text"
               id="nit"
               value={nit}
               onChange={(e) => setNit(e.target.value)}
               required
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-light"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
             />
           </div>
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-text-muted mb-1">Correo Electrónico de Contacto</label>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Correo Electrónico de Contacto</label>
             <input
               type="email"
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-light"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
             />
           </div>
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-text-muted mb-1">Contraseña</label>
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">Contraseña</label>
             <input
               type="password"
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-light"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
             />
           </div>
-           <div>
-            <label htmlFor="confirmPassword" className="block text-sm font-medium text-text-muted mb-1">Confirmar Contraseña</label>
+          <div>
+            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-1">Confirmar Contraseña</label>
             <input
               type="password"
               id="confirmPassword"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-light"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
             />
           </div>
-          {error && <p className="text-accent text-sm text-center">{error}</p>}
+          {error && <p className="text-red-500 text-sm text-center">{error}</p>}
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-secondary hover:bg-secondary-dark text-white font-bold py-3 px-4 rounded-lg transition-colors disabled:bg-gray-400 mt-4"
+            className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-4 rounded-lg transition-colors disabled:bg-gray-400 mt-4 shadow-md"
           >
             {isLoading ? 'Creando cuenta...' : 'Crear Cuenta de Empresa'}
           </button>
         </form>
-        <p className="text-center text-sm text-text-muted mt-6">
+        <p className="text-center text-sm text-gray-500 mt-6">
           ¿Ya tienes una cuenta de empresa?{' '}
-          <Link to="/operador/login" className="font-medium text-primary hover:underline">
+          <Link to="/operador/login" className="font-medium text-blue-600 hover:underline">
             Inicia sesión aquí
           </Link>
         </p>

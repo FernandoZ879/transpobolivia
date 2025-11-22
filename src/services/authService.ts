@@ -1,5 +1,3 @@
-// >>> services/authService.ts
-
 import axios from 'axios';
 import { User } from '../types';
 import { API_BASE } from '../constants'
@@ -18,7 +16,7 @@ const manageSession = (accessToken: string): { user: User; token: string } => {
     nombre: payload.nombre || '',
     role: payload.empresaId ? 'operador' : 'user',
   };
-  
+
   localStorage.setItem(TOKEN_KEY, accessToken);
   localStorage.setItem(USER_KEY, JSON.stringify(user));
 
@@ -35,7 +33,6 @@ export const authService = {
     };
 
     try {
-      // SOLO HACEMOS UNA LLAMADA. El backend ahora devuelve el { access_token }
       const response = await axios.post(`${API_URL}/auth/register`, userData);
       const { access_token } = response.data;
       return manageSession(access_token);
@@ -57,7 +54,6 @@ export const authService = {
     };
 
     try {
-      // SOLO HACEMOS UNA LLAMADA
       const response = await axios.post(`${API_URL}/auth/register`, operatorData);
       const { access_token } = response.data;
       return manageSession(access_token);
@@ -70,6 +66,23 @@ export const authService = {
   },
 
   login: async (email: string, contrasena: string): Promise<{ user: User; token: string }> => {
+    // MOCK LOGIN FOR DEMO
+    if (email === 'demo@transporte.bo' && contrasena === '123456') {
+      const mockUser: User = {
+        id: 'mock-operator-id',
+        email: 'demo@transporte.bo',
+        nombre: 'Operador Demo',
+        role: 'operador',
+        empresaId: 'empresa-1'
+      };
+      // Mock JWT structure: header.payload.signature
+      const mockToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtb2NrLW9wZXJhdG9yLWlkIiwiZW1haWwiOiJkZW1vQHRyYW5zcG9ydGUuYm8iLCJlbXByZXNhSWQiOiJlbXByZXNhLTEiLCJub21icmUiOiJPcGVyYWRvciBEZW1vIn0.signature';
+
+      localStorage.setItem(TOKEN_KEY, mockToken);
+      localStorage.setItem(USER_KEY, JSON.stringify(mockUser));
+      return { user: mockUser, token: mockToken };
+    }
+
     try {
       const response = await axios.post(`${API_URL}/auth/login`, {
         email: email.toLowerCase(),
@@ -79,7 +92,7 @@ export const authService = {
       return manageSession(access_token);
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
-          throw new Error(error.response.data.message || 'Credenciales inválidas.');
+        throw new Error(error.response.data.message || 'Credenciales inválidas.');
       }
       throw new Error('No se pudo conectar con el servidor.');
     }
